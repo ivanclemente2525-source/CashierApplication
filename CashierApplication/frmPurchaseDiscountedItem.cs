@@ -14,10 +14,14 @@ namespace CashierApplication
 {
     public partial class frmPurchaseDiscountedItem : Form
     {
-        public frmPurchaseDiscountedItem()
+        private Form loginForm;
+
+        public frmPurchaseDiscountedItem(Form loginFrm)
         {
             InitializeComponent();
+            this.loginForm = loginFrm;
         }
+
         private DiscountedItem product;
 
         private void computebutton_Click(object sender, EventArgs e)
@@ -29,7 +33,6 @@ namespace CashierApplication
             DiscountedItem item = new DiscountedItem(itemName, price, quantity, discount);
             double total = item.getTotalPrice();
             totalamounttxtbox.Text = total.ToString("0.00");
-
         }
 
         private void submitbutton_Click(object sender, EventArgs e)
@@ -40,8 +43,15 @@ namespace CashierApplication
             changetxtbox.Text = change.ToString("0.00");
         }
 
-       
-       
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
-

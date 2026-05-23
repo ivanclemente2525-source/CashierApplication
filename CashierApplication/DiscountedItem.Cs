@@ -13,8 +13,7 @@ namespace CashierApplication
             private double payment_amount;
             private double change;
 
-            public DiscountedItem(string name, double price, int quantity, double discount)
-                : base(name, price, quantity)
+            public DiscountedItem(string name, double price, int quantity, double discount) : base(name, price, quantity)
             {
                 this.item_discount = discount;
             }
